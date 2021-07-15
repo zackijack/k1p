@@ -31,10 +31,6 @@ COPY --from=build /code/k1p/bin/k1p /opt/k1p/bin
 
 RUN chmod +x /opt/k1p/bin/k1p
 
-# Create appuser
-RUN adduser --disabled-password --gecos '' k1p
-USER k1p
-
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
 CMD ["/opt/k1p/bin/k1p"]
